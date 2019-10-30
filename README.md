@@ -9,7 +9,8 @@ This script generates color specific styles/less file which you can use to chang
 ## 实例:
 
 ```
-const { generateTheme } = require('antd-theme-generator');
+const { generateTheme } = require('ng-antd-theme-generator');
+const path = require("path");
 
 const options = {
   antDir: path.join(__dirname, "./node_modules/ng-zorro-antd"), //ng-zorro-antd包位置
@@ -30,12 +31,7 @@ const options = {
   generateOnce: false
 }
 
-generateTheme(options).then(less => {
-  console.log('Theme generated successfully');
-})
-.catch(error => {
-  console.log('Error', error);
-})
+generateTheme(options);
 ```
 ## Note: include all color variables in `varFile` that you want to change dynamically and assign them unique color codes. Don't assign same color to two or more variables and don't use `#fff`, `#ffffff`, `#000` or `#000000`. If you still want white or black color as default, slightly change it e.g. `#fffffe` or `#000001` which will not replace common background colors from other components.
 
